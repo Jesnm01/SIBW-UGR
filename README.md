@@ -1,7 +1,7 @@
 # Prácticas - Sistemas de Información Basados en Web
 
 El objetivo del proyecto es crear una página web usando HTML + CSS3 + Javascript, de manera básica, sin plantillas estilo Bootstrap o parecidos.
-La página web es un sitio de promoción de festivales, y en cada una de las prácticas se van añadiendo funcionalidades progresivamente (ver los pdf [aqui](https://github.com/Jesnm01/SIBW-UGR/enunciados)).
+La página web es un sitio de promoción de festivales, y en cada una de las prácticas se van añadiendo funcionalidades progresivamente (ver los pdf [aqui](https://github.com/Jesnm01/SIBW-UGR/tree/main/enunciados)).
 
 Las prácticas 1 y 2 son páginas web estáticas que se pueden ver [aqui]() (WIP).
 
