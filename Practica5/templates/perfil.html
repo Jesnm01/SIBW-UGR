@@ -1,0 +1,113 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Log In
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div class="cabecera-perfil">
+    <h1 class="titulo-perfil">Perfil</h1>
+    <a href="editarPerfil.php"><img class="lapiz-edicion" src="images/edit_black.svg" alt="lapiz_edicion"></a>
+</div>
+
+<div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Nombre</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{user.nick}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Contraseña</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    *********
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Email</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{user.email}}
+                </div>
+                </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Fecha Nacimiento</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{user.fecha_nac}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Moderador</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {% if user.mod == 0%}
+                        <p>No</p>
+                    {% else%}
+                        <p>Si</p>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Gestor</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {% if user.gestor == 0%}
+                        <p>No</p>
+                    {% else%}
+                        <p>Si</p>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Superusuario</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {% if user.super == 0%}
+                        <p>No</p>
+                    {% else%}
+                        <p>Si</p>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

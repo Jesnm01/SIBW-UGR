@@ -1,0 +1,99 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Panel Eventos
+{% endblock %}
+
+{% block js %}
+    {{parent()}}
+    <script src="js/borrado_datos.js"></script>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+  <link rel="stylesheet" href="styles/tabla.css">
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div class="cabecera-perfil">
+    <h1 class="titulo-perfil">Gestion de Eventos</h1>
+    <div class="search-box">
+        <input type="text" name="textobusqueda" id="busqueda2" autocomplete="off" placeholder="Filtrar eventos..." />
+        <div id="result"></div>
+      </div>
+</div>
+
+{% if error == 1 %}
+    <div>
+        <h2 id="error-mensaje-super">Debe haber al menos 1 superusuario, no puedes hacer ese cambio</h2>
+        <!-- <p id="mensaje-ayuda-error-modificar">Si quiere cambiar la contraseña, introduzca su actual contraseña y la nueva contraseña que desee</p> -->
+    </div>
+{% endif %}
+
+
+
+
+<div id="add-evento-and-icon">
+    <p>Añadir un nuevo evento </p>
+    <a href="nuevoEvento.php"><img id="add-evento" src="images/add_circle_outline_black.svg" alt="simbolo de añadir evento"></a>
+</div>
+
+<table class="tabla">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imagen de cabecera</th>
+            <th>Nombre</th>
+            <th>Lugar</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody id="body_tabla">
+        {%for evento in eventos%}
+        <tr>
+            <td>{{evento.id}}</td>
+            <td><img src="{{evento.path_foto_cabecera}}" width="40%"></td>
+            <td>{{evento.nombre}}</td>
+            <td>{{evento.lugar}}</td>
+            <td>{{evento.fecha}}</td>
+            <td>
+                <div class="botones-accion-comentario">
+                    <a id="boton_editar_comentario" href="editarEvento.php?id={{evento.id}}">Editar</a>
+    
+                    <!-- con el onsubmit= "return confirmacion_modal()" podemos parar el flujo de control y detener la accion de submitear los datos (en este caso, la accion de borrado) -->
+                    <form action="borrarEvento.php" method="post" onsubmit= "return confirmacion_modal()">
+                        <input type="hidden" name="id_evento" value="{{evento.id}}">
+                        <input class="boton_borrar_comentario" type="submit" value="Borrar"/>
+                    </form>
+                </div>
+    
+                
+    
+                <form action="publicarEvento.php" method="post">
+                    <input type="hidden" name="id_evento" value="{{evento.id}}">
+                    {% if evento.publicado == 0 %}
+                        <p style="font-size: 17px; display: flex; justify-content: center;">Publicado: <input type="checkbox" name="checkbox" value="{{evento.id}}"></p>
+                    {% else %}
+                        <p style="font-size: 17px; display: flex; justify-content: center;">Publicado: <input type="checkbox" name="checkbox" value="{{evento.id}}" checked></p>
+                    {% endif %}
+                        <input class="boton_borrar_comentario" type="submit" value="Cambiar publicacion"/>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    
+    
+</table>
+
+
+{% endblock %}
+
+

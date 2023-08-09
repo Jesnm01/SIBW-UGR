@@ -1,0 +1,94 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Editar Comentario
+{% endblock %}
+
+{% block js %}
+    {{parent()}}
+    <script src="js/funcionalidades_comentarios.js"></script>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/editarComentario.css">
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div class="cabecera-perfil">
+    <h1 class="titulo-perfil">Edicion de Comentario</h1>
+</div>
+
+<div class="comment-edition-container">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Nombre del usuario</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{comentario.nombre_usuario}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Fecha del comentario</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{comentario.fecha}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Nombre Evento</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{comentario.nombre_evento}}
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="mb-0">Descripcion</h3>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{comentario.descripcion}}
+                </div>
+                </div>
+            <hr>
+
+        </div>
+    </div>
+
+
+    <div>
+        <form method="POST" action="editarComentario.php?id={{comentario.id_comentario}}">
+            <ul>
+              <li>
+                <label for="msg">Nueva descripcion:</label>
+                <textarea id="msg" name="nueva_descripcion" oninput="censurar({{palabras_ban|json_encode}})">{{comentario.descripcion}}</textarea>
+              </li>
+
+              <li class="button">
+                <input id="boton-comentario" type="submit" value="Confirmar cambios"/>
+              </li>
+
+            </ul>
+        </form>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+

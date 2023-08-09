@@ -1,0 +1,161 @@
+
+/*Tengo aqui todos los estilos generales y los del evento, pero voy haciendo algunso cambios como el display: none; en aquellos que no quiero que aparezcan*/
+
+body{
+    margin: 0;
+}
+
+.bienvenida{
+    display: none;
+}
+
+/*Estilos de cabecera y su contenido*/
+.header-principal {
+    /*background-color:#302f2ff8;*/
+    padding: 1%;
+}
+
+.header-principal > a{
+    display: inline;
+    justify-content: center;
+}
+
+#logo {
+    float: right;
+    width: 180px;
+    height: 80px;
+}
+
+.site-name{
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    
+    /*text-shadow: 1px 3px black;*/
+}
+
+/*Le pongo el none!important para que le dé más importancia a este display con respecto al del padre
+que es el display de la clase ".header-principal" y que por defecto está a block (me parece que va asi esto)*/
+.nav-bar {
+    display: none!important;
+
+    font-family: sans-serif;
+    overflow: auto;
+    background-color:rgba(203,0,39,217);
+    display: block;
+}
+
+.nav-bar .nav-bar-left-links {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+
+.nav-bar .nav-bar-left-links:hover{
+    background-color: rgb(238, 224, 27);
+    color: black;
+}
+
+.red-soc-impr-item {
+    float: right;
+    padding: 14px 16px;
+}
+
+.red-soc-impr-item:hover{
+    background-color: rgb(141, 14, 14);
+}
+
+/*display: none; para que no se muestre*/
+.left-sidebar-container{
+    display: none;
+
+    font-family: sans-serif;
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 5px 3px rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    height: 852px;
+    float: left;
+}
+
+.left-sidebar-topic{
+    padding: 1%;
+    margin-left: 3%;
+}
+
+.left-sidebar-item{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 2% 4% 4% 4%;
+    margin: 4%;
+}
+
+.left-sidebar-item:hover{
+    text-decoration: underline;
+}
+
+.main{
+    overflow-x: hidden;
+    /*background-color: #302f2f;*/
+}
+
+.container-header-evento {
+    position: relative;
+}
+
+#lapiz-editar-evento{
+    display: none;
+}
+
+#tomorrowland_background {
+    display: none;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.info-header-evento {
+    font-size: 16px;
+    padding: 0% 1% 1% 1%;
+    width: 45%;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+}
+
+.organizadores{
+    /*background-color: #302f2ff8;*/
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-size: 0.9em;
+    padding: 0% 1% 0% 1%;
+}
+
+.organizadores > p{
+    margin: 0;
+}
+
+.descripcion-evento{
+    /*background-color: #5c5b5bf8;*/
+    color: rgb(0, 0, 0);
+    padding: 1%;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.slideshow-container{
+    display: none;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #8d8d8df8;
+    margin-top: 20px;
+    font-family: sans-serif;
+    color: rgb(17, 17, 17);
+    font-size: 10px;
+}

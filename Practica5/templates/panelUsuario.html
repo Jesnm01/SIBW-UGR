@@ -1,0 +1,96 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Panel Usuarios
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+  <link rel="stylesheet" href="styles/tabla.css">
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div class="cabecera-perfil">
+    <h1 class="titulo-perfil">Panel de Usuarios</h1>
+    <!-- <a href="editarPerfil.php"><img class="lapiz-edicion" src="images/edit_black.svg" alt="lapiz_edicion"></a> -->
+</div>
+
+{% if error == 1 %}
+    <div>
+        <h2 id="error-mensaje-super">Debe haber al menos 1 superusuario, no puedes hacer ese cambio</h2>
+        <!-- <p id="mensaje-ayuda-error-modificar">Si quiere cambiar la contraseña, introduzca su actual contraseña y la nueva contraseña que desee</p> -->
+    </div>
+{% endif %}
+
+<table class="tabla">
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Super</th>
+      <th>Gestor</th>
+      <th>Moderador</th>
+    </tr>
+
+
+    {% for user in lista_usuarios %}
+    <tr>
+        <td>{{user.nombre}}</td>
+        <td>{{user.email}}</td>
+
+        <td><form action="panelUsuario.php" method="post">
+            <input type="hidden" name="nick" value="{{user.nombre}}">
+            <select name="rol_super">
+                {% if user.super == 0 %}
+                    <option value="0" selected>No</option>
+                    <option value="1">Si</option>
+                {% else %}
+                    <option value="0">No</option>
+                    <option value="1" selected>Si</option>
+                {% endif %}
+            </select>
+            <button type="submit">Cambiar</button>
+            </form>
+        </td>
+
+        <td><form action="panelUsuario.php" method="post">
+            <input type="hidden" name="nick" value="{{user.nombre}}">
+            <select name="rol_gestor">
+                {% if user.gestor == 0 %}
+                    <option value="0" selected>No</option>
+                    <option value="1">Si</option>
+                {% else %}
+                    <option value="0">No</option>
+                    <option value="1" selected>Si</option>
+                {% endif %}
+            </select>
+            <button type="submit">Cambiar</button>
+            </form>
+        </td>
+        
+        <td><form action="panelUsuario.php" method="post">
+            <input type="hidden" name="nick" value="{{user.nombre}}"> <!--Con el atributo hidden puedo poner un label que no se vea, y pasar por ahi el nombre del usuario, que hará falta en php para modificar el rol-->
+            <select name="rol_moderador">
+                {% if user.moderador == 0 %}
+                    <option value="0" selected>No</option>
+                    <option value="1">Si</option>
+                {% else %}
+                    <option value="0">No</option>
+                    <option value="1" selected>Si</option>
+                {% endif %}
+            </select>
+            <button type="submit">Cambiar</button>
+            </form>
+        </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+
+
