@@ -1,0 +1,115 @@
+
+
+#imagen_de_chat{
+    position: fixed;
+    border-radius: 40%;
+    bottom: 20px;
+    right: 50px;
+    height: 50px;
+}
+
+#imagen_de_chat:hover{
+    cursor: pointer;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+#comment-section{
+    background-color: #a5a3a3;
+    border-style: solid;
+    border-color: white;
+    border-radius: 2%;
+    position: fixed;
+    bottom: 80px;
+    right: 5px;
+    width: 30%;
+    height: 70%;
+    overflow-y: scroll;
+    font: .9em Verdana;
+}
+
+#comment-section hr{
+    border-width: 4px;
+}
+
+.comment-header{
+    margin-top: -6px;
+    margin-left: 12px;
+    margin-bottom: -10px;
+}
+
+.comment{
+    margin-left: 12px;
+    border-bottom: 3px solid rgb(145, 143, 143);
+
+}
+
+.comment-content{
+    margin-left: 30px;
+}
+
+
+form {
+    margin: 20px auto;
+    width: 87%;
+
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Selector de descendencia: selecciona los descendientes de form, y especificamente la primera ocurrencia de <li> despues de un <li>
+     por lo que el primer <li> no se le aplica el estilo, pero a los demas si, porque tienen encima un <li>*/
+  form li + li {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* Tamaño y alineación uniforme */
+    display: inline-block;
+    width: 23%;
+    text-align: left;
+  }
+  
+  input, textarea {
+    /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra*/
+    font: .9em Verdana;
+  
+    width: 74%;
+    box-sizing: border-box;
+  
+    border: 1px solid #999;
+  }
+  
+  input:focus, textarea:focus {
+    /* Destacado adicional para elementos que tienen el cursor */
+    border-color: #000;
+  }
+  
+  textarea {
+    /* /* Alinear el espacio del textarea con su etiqueta  */
+    vertical-align: top;
+  
+    /* /* Proporcionar espacio para escribir texto  */
+    height: 6em;
+
+    /* Para que solo se pueda escalar el textarea de manera vertical */
+    resize: vertical;
+  }
+  
+  .button {
+    /* Alinear el boton con los campos de texto */
+    padding-left: 23%;
+
+  }
+  
+  button {
+    /* Este margen adicional representa aproximadamente el mismo espacio que el espacio
+       entre las etiquetas y sus campos de texto */
+    margin-left: .4em;
+  }

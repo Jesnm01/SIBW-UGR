@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos_generales.css">
+    <link rel="stylesheet" href="css/portada.css">
+    <title>Practica 2 SIBW Portada</title>
+</head>
+
+<body>
+    <!--Cabecera de la página, que contiene el logo, el nombre del sitio,
+        el menú de navegación y botones sociales-->
+    <header class="header-principal">
+        <a href="portada.html"><img id="logo" src="imgs/fanmusicfest.png" 
+            alt="logo de fanmusicfest"></a>
+        
+        <div class="site-name">
+          <h1>FanFestSound</h1>
+        </div>
+
+        <!--Barra de navegacion del menu superior-->
+        <nav class="nav-bar">
+            <a class="nav-bar-left-links" href="portada.html">Home</a>
+            <a class="nav-bar-left-links" href="#eventos">Eventos</a>
+            <a class="nav-bar-left-links" href="#">News</a>
+            <a class="nav-bar-left-links" href="#foot">About</a>
+            <!--<a class="red-soc-impr-item" href="evento_imprimir.html" target="_blank"><img src="imgs/impresora.png" alt="printer" 
+                style="width: 20px; height: 20px;"></a>-->
+            <a class="red-soc-impr-item" href="https://facebook.com" target="_blank"><img src="imgs/facebook.png" alt="facebook_logo" 
+                style="width: 20px; height: 21px;"></a>
+            <a class="red-soc-impr-item" href="https://twitter.com/" target="_blank"><img src="imgs/twitter.png" alt="twitter_logo" 
+                style="width: 20px; height: 21px;"></a>
+        </nav>
+    </header>
+
+    <!--Apartado de la izquierda con enlaces a otras webs y noticias-->
+    <nav class="left-sidebar-container">
+            <div class="left-sidebar-topic">
+                <h3>Webs y noticias</h3>
+            </div>
+            <a class="left-sidebar-item" href="https://www.festicket.com/es/" target="_blank">Festicket Web Oficial</a>
+            <a class="left-sidebar-item" href="https://fanmusicfest.com/" target="_blank">Fan Music Fest Web Oficial</a>
+            <a class="left-sidebar-item" href="https://twitter.com/ultra" target="_blank">Twitter Oficial del Ultra Music Festival Miami</a>
+            <a class="left-sidebar-item" href="https://cadenaser.com/ser/2021/03/02/cultura/1614685458_845545.html" target="_blank">Primavera Sound 2021 se suspende por las restricciones - SER</a>
+            <a class="left-sidebar-item" href="https://www.mundodeportivo.com/actualidad/20180408/442202721344/diez-festivales-musica-espectaculares-mundo.html" target="_blank">Estos son los festivales de música más espectaculares del mundo - Mundo Deportivo</a>
+            <a class="left-sidebar-item" href="https://www.festicket.com/es/magazine/discover/top-20-music-festivals-Europe/" target="_blank">Top 25 festivales Europa - Festicket</a>
+    </nav>
+
+    <!--Espacio principal de la pagina-->
+    <div class="main">
+        <!--Texto de eventos y barra horizontal separadora-->
+        <div id="eventos">
+            <h2 id="texto-evento">Eventos</h2>
+        </div>
+        <hr>
+
+        <!--Seccion específica que alberga todos los eventos, con sus imagenes y 
+            su informacion más importante-->
+        <section>
+            <div class="flex-container">
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/tomorrowland.jpg" alt="tomorrowland festival">
+                            <div>
+                                <h3 class="flex-item-info">Tomorrowland 2021</h3>
+                                <p class="sub-info"><em>Boom, Bélgica 16-18 y 23-25 Julio</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/creamfields.jpg" alt="creamfields festival">
+                            <div>
+                                <h3 class="flex-item-info">CreamFields 2021</h3>
+                                <p class="sub-info"><em>Warrington, Reino Unido 26-29 Agosto</em></p>
+                            </div>
+                        </a>                        
+                    </div>
+                </div>
+                                
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/madcool.jpg" alt="madcool festival">
+                            <div>
+                                <h3 class="flex-item-info">Mad Cool Festival 2021</h3>
+                                <p class="sub-info"><em>Madrid, España 7-10 Julio</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/arenal-sound.jpg" alt="arenal-sound festival">
+                            <div>
+                                <h3 class="flex-item-info">Arenal Sound 2021</h3>
+                                <p class="sub-info"><em>Burrianas, Valencia 27 Julio - 1 Agosto</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/dreambeach.jpg" alt="dreambeach festival">
+                            <div>
+                                <h3 class="flex-item-info">Dreambeach 2021</h3>
+                                <p class="sub-info"><em>Villaricos, Almería 4-8 Agosto</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/defqon1.jpg" alt="defqon1 festival">
+                            <div>
+                                <h3 class="flex-item-info">Defqon 1 2021</h3>
+                                <p class="sub-info"><em>Biddinghuizen, Países Bajos 25-27 Junio</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/edc_portugal.jpg" alt="edc_portugal festival">
+                            <div>
+                                <h3 class="flex-item-info">EDC Portugal 2021</h3>
+                                <p class="sub-info"><em>Praia da Rocha, Portugal 18-20 Junio</em></p>
+                            </div>
+                        </a>                        
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/mysteryland.jpg" alt="mysteryland festival">
+                            <div>
+                                <h3 class="flex-item-info">Mysteryland 2021</h3>
+                                <p class="sub-info"><em>Ámsterdam, Paises Bajos 27-29 Agosto</em></p>
+                            </div>
+                        </a>                        
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex-item">
+                        <a class="link-evento" href="evento.html">
+                            <img class="flex-img" src="imgs/Coachella.jpg" alt="Coachella festival">
+                            <div>
+                                <h3 class="flex-item-info">Coachella 2021</h3>
+                                <p class="sub-info"><em>California, Estados Unidos 9-11 Abril</em></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Footer de la pagina-->
+    <footer id="foot">
+        <h2>Web de prueba para las prácticas de la asignatura SIBW (el logotipo no es mio, no se obtiene ningún beneficio económico con esta web)</h2>
+        <h3> 2021 FanFestSound ● Practicas SIBW ● JNM </h3>
+    </footer>
+
+</body>
+</html>
