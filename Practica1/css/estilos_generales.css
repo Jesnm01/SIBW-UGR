@@ -1,0 +1,95 @@
+
+body{
+    margin: 0;
+}
+
+/*Estilos de cabecera y su contenido*/
+.header-principal {
+    background-color:#302f2ff8;
+    padding: 20px 10px 12px 20px;
+}
+
+#logo {
+    display: block;
+    float: left;
+    width: 280px;
+    height: 130px;
+    margin-right: 30px;
+}
+
+.site-name{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blanchedalmond;
+    text-align: right;
+    text-shadow: 1px 3px black;
+}
+
+.nav-bar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: auto;
+    background-color:rgba(203,0,39,217);
+    display: block;
+}
+
+.nav-bar .nav-bar-left-links {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+}
+
+.nav-bar .nav-bar-left-links:hover{
+    background-color: rgb(238, 224, 27);
+    color: black;
+}
+
+.red-soc-impr-item {
+    float: right;
+    padding: 14px 16px;
+}
+
+.red-soc-impr-item:hover{
+    background-color: rgb(141, 14, 14);
+}
+
+/*Estilos del left-sidebar*/
+.left-sidebar-container{
+    font-family: Verdana;
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 5px 3px rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    height: 955px;
+    float: left;
+}
+
+.left-sidebar-topic{
+    padding: 1%;
+    margin-left: 3%;
+}
+
+.left-sidebar-item{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 2% 4% 4% 4%;
+    margin: 4%;
+}
+
+.left-sidebar-item:hover{
+    text-decoration: underline;
+}
+
+/*Como los estilos del main varían, los hago en cada css dedicado*/
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #302f2ff8;
+    margin-top: 20px;
+    font-family: Verdana;
+    color: blanchedalmond;
+    font-size: 10px;
+}
