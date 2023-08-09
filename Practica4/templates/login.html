@@ -1,0 +1,49 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Log In
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/formulario.css">
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div>
+    <h1 class="titulo-formulario">Inicio de Sesion</h1>
+</div>
+
+<div>
+    {% if error == 1 %}
+    <div>
+        <h2 id="error-mensaje-login">El usuario o la contraseña son incorrectos, intentelo de nuevo</h2>
+    </div>
+    {% endif %}
+
+    <form action="login.php" method="post">
+        <ul>
+        <li>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nick">
+        </li>
+        
+        <li>
+          <label for="mail">Password:</label>
+          <input type="password" id="pass" name="contraseña">
+        </li>
+    
+        <li class="button">
+            <input id="boton-login" type="submit" value="Log In" />
+        </li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}
+
+

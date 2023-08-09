@@ -1,0 +1,64 @@
+{% extends "padre.html" %}
+
+{% block titulo %}
+  Panel Comentarios
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+  <link rel="stylesheet" href="styles/tabla.css">
+  <script src="js/borrado_datos.js"></script>
+{% endblock %}
+
+{% block enlaces %}
+{% endblock %}
+
+{% block central %}
+
+<div class="cabecera-perfil">
+    <h1 class="titulo-perfil">Gestion de Comentarios</h1>
+</div>
+
+{% if error == 1 %}
+    <div>
+        <h2 id="error-mensaje-super">Debe haber al menos 1 superusuario, no puedes hacer ese cambio</h2>
+        <!-- <p id="mensaje-ayuda-error-modificar">Si quiere cambiar la contraseña, introduzca su actual contraseña y la nueva contraseña que desee</p> -->
+    </div>
+{% endif %}
+
+<table class="tabla">
+    <tr>
+      <th>Evento</th>
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Descripcion</th>
+      <th>Accion</th>
+    </tr>
+
+
+    {% for comentario in lista_comentarios %}
+    <tr>
+        <td>{{comentario.id_evento}}</td>
+        <td>{{comentario.nombre_usuario}}</td>
+        <td>{{comentario.fecha}}</td>
+        <td>{{comentario.descripcion}}</td>
+        <td>
+            <div class="botones-accion-comentario">
+                <a id="boton_editar_comentario" href="editarComentario.php?id={{comentario.id_comentario}}">Editar</a>
+
+                <!-- con el onsubmit= "return confirmacion_modal()" podemos parar el flujo de control y detener la accion de submitear los datos (en este caso, la accion de borrado) -->
+                <form action="borrarComentario.php" method="post" onsubmit= "return confirmacion_modal()">
+                    <input type="hidden" name="id_comentario" value="{{comentario.id_comentario}}">
+                    <input class="boton_borrar_comentario" type="submit" value="Borrar"/>
+                </form>
+            </div>
+            
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+
+

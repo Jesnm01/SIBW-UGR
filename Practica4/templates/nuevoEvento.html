@@ -1,0 +1,88 @@
+
+{% extends "padre.html" %}
+
+
+{% block titulo %}
+  Nuevo Evento
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/evento.css">
+  <link rel="stylesheet" href="styles/comentarios.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+
+  <!-- <link rel="stylesheet" href="styles/slideshow.css"> -->
+  <!-- <script src="js/funcionalidades_comentarios.js"></script> -->
+  <!-- <script src="js/slideshow.js" defer></script> -->
+{% endblock %}
+
+{% block sociales %}
+
+{% endblock %}
+
+
+
+{% block enlaces %}
+ 
+{% endblock %}
+
+
+{% block central %}
+    <div class="cabecera-perfil">
+        <h1 class="titulo-perfil">Nuevo Evento</h1>
+    </div>
+
+    {% if error != "nada" %}
+        <p style="color: #f00; margin-left: 6%;">{{error}}</p>
+    {% endif %}
+
+    <form action="nuevoEvento.php" method="post">
+        <h4 class="header-formulario-edicion-evento">Información básica</h4>
+        <hr>
+        <input type="text" name="id_evento" value="{{evento.id}}" hidden>
+
+        <div class="container-apartados-edicion-evento">
+            <p>Nombre del evento</p>
+            <input type="text" name="nombre" value="{{evento.nombre}}">
+
+            <p>Lugar</p>
+            <input type="text" name="lugar" value="{{evento.lugar}}">
+
+            <p>Fecha</p>
+            <input type="text" name="fecha" value="{{evento.fecha}}">
+
+            <p>Organizadores</p>
+            <input type="text" name="organizadores" value="{{evento.organizadores}}">
+
+            <p>Descricpión del evento</p>
+            <textarea id="msg" name="descripcion">{{evento.descripcion}}</textarea>
+
+        </div>
+
+        
+        <h4 class="header-formulario-edicion-evento">Redes sociales</h4>
+        <hr>
+        <input type="text" name="id_evento" value="{{evento.id}}" hidden>
+
+        <div class="container-apartados-edicion-evento">
+            <p>Cuenta de Twitter (URL completa)</p>
+            <input type="text" name="twitter" value="{{evento.twitter}}">
+            
+            <p>Página de Facebook (URL completa)</p>
+            <input type="text" name="facebook" value="{{evento.facebook}}">
+        </div>
+
+        <br> <br>
+        <button type="submit">Añadir Evento</button>
+    </form>
+
+    <div>
+        <h2 class="header-formulario-edicion-evento" style="margin: 2% 6%; color: rgb(173, 23, 23);">Las imágenes y las etiquetas se añaden una vez creado el evento mediante edicion</h2>        
+    </div>
+  
+
+  {% block comentarios%}
+  
+  {% endblock %}
+{% endblock %}

@@ -1,0 +1,164 @@
+
+{% extends "padre.html" %}
+
+
+{% block titulo %}
+  Editar Evento
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/evento.css">
+  <link rel="stylesheet" href="styles/comentarios.css">
+  <link rel="stylesheet" href="styles/perfil.css">
+
+  <!-- <link rel="stylesheet" href="styles/slideshow.css"> -->
+  <!-- <script src="js/funcionalidades_comentarios.js"></script> -->
+  <!-- <script src="js/slideshow.js" defer></script> -->
+{% endblock %}
+
+{% block sociales %}
+<a class="red-soc-impr-item" href="evento_imprimir.php?ev={{evento.id}}" target="_blank"><img src="images/impresora.png" alt="printer" 
+                style="width: 20px; height: 21px;"></a>
+{% endblock %}
+
+
+
+{% block enlaces %}
+ 
+{% endblock %}
+
+
+{% block central %}
+    <div class="cabecera-perfil">
+        <h1 class="titulo-perfil">Edicion Evento</h1>
+    </div>
+
+    {% for e in errores %}
+        <p style="color: #f00;">{{e}}</p>
+    {% endfor %}
+
+    <form action="editarEvento.php?id={{evento.id}}" method="post">
+        <h4 class="header-formulario-edicion-evento">Información básica</h4>
+        <hr>
+        <input type="text" name="id_evento" value="{{evento.id}}" hidden>
+
+        <div class="container-apartados-edicion-evento">
+            <p>Nombre del evento</p>
+            <input type="text" name="nombre" value="{{evento.nombre}}">
+
+            <p>Lugar</p>
+            <input type="text" name="lugar" value="{{evento.lugar}}">
+
+            <p>Fecha</p>
+            <input type="text" name="fecha" value="{{evento.fecha}}">
+
+            <p>Organizadores</p>
+            <input type="text" name="organizadores" value="{{evento.organizadores}}">
+
+            <p>Descricpión del evento</p>
+            <textarea id="msg" name="descripcion">{{evento.descripcion}}</textarea>
+
+            <p>Etiquetas (separar cada etiqueta diferente con un ';')</p>
+            <input type="text" name="tags" value="{{tags_formateadas}}">
+        </div>
+
+        
+    
+
+        <h4 class="header-formulario-edicion-evento">Redes sociales</h4>
+        <hr>
+        <input type="text" name="id_evento" value="{{evento.id}}" hidden>
+
+        <div class="container-apartados-edicion-evento">
+            <p>Cuenta de Twitter (URL completa)</p>
+            <input type="text" name="twitter" value="{{evento.twitter}}">
+            
+            <p>Página de Facebook (URL completa)</p>
+            <input type="text" name="facebook" value="{{evento.facebook}}">
+        </div>
+
+        <br> <br>
+        <button type="submit">Confirmar cambios</button>
+    </form>
+
+    <form action="editarFotosEvento.php?id={{evento.id}}" method="post" enctype="multipart/form-data">
+        <h4 class="header-formulario-edicion-evento">Imágenes</h4>
+        <hr>
+        <p>Cambiar imagen de cabecera. La actual imagen es la que se ve y está guardada en <a target="_blank" href="{{evento.path_foto_cabecera}}">{{evento.path_foto_cabecera}}</a></p>
+        <img src="{{evento.path_foto_cabecera}}" style="width: 500px; height: 250px;">
+        <input type="file" name="foto_cabecera"/>
+        <br> <br> <br> <br>
+
+         <p>Añadir imagenes para el slideshow</p>
+         <div class="slideshow-edit-container">
+            {% for foto in fotos_slideshow %}
+                <div class="slideshow-item">
+                    <a target="_blank" href="{{foto.path_imagen}}"><img src="{{foto.path_imagen}}" style="width: 500px; height: 250px;"></a>
+                    <input type="text" name="ids_fotos[]" value="{{foto.id}}" hidden>
+                    <input class="caption-input-slideshow" type="text" name="captions[]" value="{{foto.caption}}">
+                    
+                    <a id="boton_editar_comentario" href="borrarFoto.php?id={{foto.id}}">Borrar</a>
+                    <br><br>
+                </div>
+            {% endfor %}
+        </div>
+        <input type="file" name="imagenes_slideshow[]" multiple>
+
+
+         <br> <br>
+        <button type="submit">Confirmar cambios</button>
+    </form>
+
+
+
+
+
+
+
+  <!-- <div class="container-header-evento">
+    <img id="tomorrowland_background" src="{{evento['path_foto_cabecera']}}" alt="tomorroland_background">
+    <div class="info-header-evento">
+        <h1>{{evento['nombre']}}</h1>
+        <p>{{evento['lugar_y_fecha']}}</p>
+    </div>
+  </div>
+
+  <section class="organizadores">
+      <p>Organizadores: {{evento['organizadores']}}</p>
+      {% if user.super == 1 or user.gestor == 1 %}
+        <a id="lapiz-editar-evento" href="editarEvento.php?id={{evento.id}}"><img id="imagen-lapiz-evento" class="boton-comentario" src="images/edit_black.svg" alt="lapiz_edicion"></a>
+      {% endif %}
+  </section>
+
+  <section class="descripcion-evento">
+      <p>{{evento['descripcion']|nl2br}}</p>
+
+      <div class="slideshow-container">
+        {% for i in 0..fotos|length-1 %}
+          <div class="mySlides fade">
+            <div class="numbertext">{{i+1}} / {{fotos|length}}</div>
+            <img src="{{fotos[i]['path_imagen']}}" alt="{{fotos[i]['caption']}}">
+            <div class="text">{{fotos[i]['caption']}}</div>
+          </div>
+        {% endfor %}
+        
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+          </div>
+          <br>
+          
+          <div style="text-align:center">
+            {% for i in 0..fotos|length-1 %}
+              <span class="dot" onclick="currentSlide({{i+1}})"></span>
+            {% endfor %}
+          </div>
+  </section> -->
+
+  
+
+  {% block comentarios%}
+  
+  {% endblock %}
+{% endblock %}

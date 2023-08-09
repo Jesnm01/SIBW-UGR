@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+      <p>Si ve esto, poner un bloque en el hijo con los enlaces a los archivos css correspondientes de dicha pagina</p>
+    {% endblock %}
+
+    <title>Practica 4 SIBW {% block titulo %} Poner titulo en el hijo {% endblock %}</title>
+</head>
+
+<body>
+
+    <!--Cabecera de la página, que contiene el logo, el nombre del sitio,
+        el menú de navegación y botones sociales-->
+    <header class="header-principal">
+        <a href="index.php"><img id="logo" src="images/fanmusicfest.png" 
+            alt="logo de fanmusicfest"></a>
+
+
+        {% if esta_login == "sin cuenta" %}
+          <div class="bienvenida">
+            <a class="inicio-sesion-register" href="login.php">Log In</a>
+            <a class="inicio-sesion-register" href="register.php">Register</a>
+          </div>
+        {% else %}
+          <div class="bienvenida">
+            <a class="inicio-sesion-register" href="logout.php">Log Out</a>
+            <p id="mensaje-bienvenida">Bienvenido/a <em>{{user.nick}}</em></p>
+          </div>
+        {% endif %}
+        
+        
+        <div class="site-name">
+          <h1>FanFestSound</h1>
+        </div>
+
+        
+
+        <!--Barra de navegacion del menu superior-->
+        <nav class="nav-bar">
+            <a class="nav-bar-left-links" href="index.php">Home</a>
+            <a class="nav-bar-left-links" href="index.php#eventos">Eventos</a>
+
+            {% if esta_login != "sin cuenta"%}
+              {% if user.super == 1 %}
+                  <a class="nav-bar-left-links" href="panelComentarios.php">Gestion Comentarios</a>
+                  <a class="nav-bar-left-links" href="panelEventos.php">Gestion Eventos</a>
+                  <a class="nav-bar-left-links" href="panelUsuario.php">Panel de Usuarios</a>
+              {% else %}
+
+                {% if user.mod == 1 %}
+                  <a class="nav-bar-left-links" href="panelComentarios.php">Gestion Comentarios</a>
+                {% endif %}
+
+                {% if user.gestor == 1 %}
+                  <a class="nav-bar-left-links" href="panelEventos.php">Gestion Eventos</a>
+                {% endif %}
+              {% endif %}
+
+              <a class="nav-bar-left-links" href="perfil.php">Perfil</a>
+            {% endif %}
+
+
+            {% block sociales %}
+              <a class="red-soc-impr-item" href="{{evento.facebook}}" target="_blank"><img src="images/facebook.png" alt="facebook_logo" 
+                style="width: 20px; height: 21px;"></a>
+              <a class="red-soc-impr-item" href="{{evento.twitter}}" target="_blank"><img src="images/twitter.png" alt="twitter_logo" 
+                style="width: 20px; height: 21px;"></a>
+            {% endblock %}
+            
+        </nav>
+    </header>
+    
+
+    {% block enlaces %}
+    <!--Apartado de la izquierda con enlaces a otras webs y noticias-->
+    <nav class="left-sidebar-container">
+      {% block left_sidebar_topic %}
+
+      {% endblock %}
+            <div class="left-sidebar-topic">
+                <h3>Webs y noticias</h3>
+            </div>
+            <a class="left-sidebar-item" href="https://www.festicket.com/es/" target="_blank">Festicket Web Oficial</a>
+            <a class="left-sidebar-item" href="https://fanmusicfest.com/" target="_blank">Fan Music Fest Web Oficial</a>
+            <a class="left-sidebar-item" href="https://twitter.com/ultra" target="_blank">Twitter Oficial del Ultra Music Festival Miami</a>
+            <a class="left-sidebar-item" href="https://cadenaser.com/ser/2021/03/02/cultura/1614685458_845545.html" target="_blank">Primavera Sound 2021 se suspende por las restricciones - SER</a>
+            <a class="left-sidebar-item" href="https://www.mundodeportivo.com/actualidad/20180408/442202721344/diez-festivales-musica-espectaculares-mundo.html" target="_blank">Estos son los festivales de música más espectaculares del mundo - Mundo Deportivo</a>
+            <a class="left-sidebar-item" href="https://www.festicket.com/es/magazine/discover/top-20-music-festivals-Europe/" target="_blank">Top 25 festivales Europa - Festicket</a>
+    </nav>
+    {% endblock %}
+
+
+    <!--Espacio principal de la pagina-->
+    <div class="main">
+      {% block central %}
+        <h1>Texto de ejemplo del padre, si ve esto, hacer un bloque en el hijo</h1> 
+      {% endblock %}
+    </div>
+
+    <!--Footer de la pagina-->
+    <footer id="foot">
+        <h2>Web financiada por mi mismo (el logo no es mio, por favor no denuncien)</h2>
+        <h3>© 2021 FanFestSound ● Practicas SIBW ● JNM ● <span>Correo de contacto: jesusnavarro@correo.ugr.es</span> </h3>
+    </footer>
+
+</body>
+</html>
