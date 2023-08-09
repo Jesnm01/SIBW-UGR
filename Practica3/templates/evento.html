@@ -1,0 +1,118 @@
+
+{% extends "padre.html" %}
+
+
+{% block titulo %}
+  Evento
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="styles/estilos_generales.css">
+  <link rel="stylesheet" href="styles/evento.css">
+  <link rel="stylesheet" href="styles/comentarios.css">
+  <script src="js/funcionalidades_comentarios.js"></script>
+{% endblock %}
+
+{% block sociales %}
+<a class="red-soc-impr-item" href="evento_imprimir.php?ev={{id_evento}}" target="_blank"><img src="images/impresora.png" alt="printer" 
+                style="width: 20px; height: 21px;"></a>
+{% endblock %}
+
+
+
+{% block left_sidebar_topic %}
+  <div class="left-sidebar-topic">
+    <h3>Información adicional</h3>
+  </div>
+  {% if id_evento == 1 %}
+    <a class="left-sidebar-item" href="https://www.tomorrowland.com/home/" target="_blank">Tomorrowland Home</a>
+    <a class="left-sidebar-item" href="https://www.tomorrowland.com/en/festival/welcome" target="_blank">Tomorrowland Festival Page</a>
+    <a class="left-sidebar-item" href="https://faq.tomorrowland.com/hc/en-us" target="_blank">FAQ Tomorrowland</a>
+  {% elseif id_evento == 2 %}
+    <a class="left-sidebar-item" href="https://creamfields.com/" target="_blank">Creamfields Official Site</a>
+    <a class="left-sidebar-item" href="https://creamfields.com/faq" target="_blank">Creamfields FAQ</a>
+  {% endif %}
+
+  <!-- {% for i in 0..10 %}
+  <a class="left-sidebar-item" href="https://www.tomorrowland.com/home/" target="_blank">{{ i }}</a>
+  {% endfor %} -->
+
+  <!--Linea separadora horizontal-->
+  <hr>
+{% endblock %}
+
+
+{% block central %}
+  <!--Cabecera con la foto, el nombre del evento y las fechas-->
+  <div class="container-header-evento">
+    <img id="tomorrowland_background" src="{{fotos['path_imagen_cabecera']}}" alt="tomorroland_background">
+    <div class="info-header-evento">
+        <h1>{{evento['nombre']}}</h1>
+        <p>{{evento['lugar_y_fecha']}}</p>
+    </div>
+  </div>
+
+  <!--Seccion para los organizadores-->
+  <section class="organizadores">
+      <p>Organizadores: {{evento['organizadores']}}</p>
+  </section>
+
+  <!--Seccion para poner la descripcion del evento y las fotos laterales-->
+  <section class="descripcion-evento">
+      <figure class="figure-aside">
+          <img src="{{fotos['path_imagen1_galeria']}}" alt="mainstage_tomorroland">
+              <figcaption><em>{{fotos['caption_imagen1']}}</em></figcaption>
+          <hr>
+          <img src="{{fotos['path_imagen2_galeria']}}" alt="backstage_tomorroland">
+              <figcaption><em>{{fotos['caption_imagen2']}}</em></figcaption>
+      </figure>
+
+      <p>{{evento['descripcion']}}</p>
+  </section>
+  </div>
+
+  {% block comentarios%}
+  <div>
+    <img id="imagen_de_chat" src="images/chat.png" alt="imagen_de_chat" onclick="mostarFormulario('comment-section')">
+  </div>    
+
+  <section id="comment-section">
+      <div class="comment-header">
+          <h2>Comentarios</h2>
+      </div>
+      <hr>
+      <div id="uploaded-comments">
+        {% for comentario in comentarios %}
+          <div class="comment">
+              <h4 class="comment-author-date">{{comentario.nombre_usuario}}, comentado el {{comentario.fecha}} </h4>
+              <p class="comment-content">{{comentario.descripcion}} </p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <form>
+          <ul>
+          <li>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="user_name">
+          </li>
+          
+          <li>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="user_mail">
+          </li>
+
+          <li>
+            <label for="msg">Mensaje:</label>
+            <!-- El json_encode es para que transforme 'palabras_ban' en una representacion de JSON, para usarlo en Javascript -->
+            <textarea id="msg" name="user_message" oninput="censurar({{palabras_ban|json_encode}})"></textarea>
+          </li>
+
+          <li class="button">
+              <button type="button" onclick="enviarComentario()">Envíe su comentario</button>
+          </li>
+          </ul>
+      </form>
+  </section>
+  {% endblock %}
+{% endblock %}
