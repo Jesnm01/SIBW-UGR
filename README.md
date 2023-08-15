@@ -1,4 +1,4 @@
-# Prácticas - Sistemas de Información Basados en Web
+# Prácticas - Sistemas de Información Basados en Web 20/21
 
 El objetivo del proyecto es crear una página web usando HTML + CSS3 + Javascript, de manera básica, sin plantillas de estilos como Bootstrap o parecidos.  
 
